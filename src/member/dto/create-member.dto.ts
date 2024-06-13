@@ -1,4 +1,15 @@
-export class CreateMemberDto {
+import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty, IsString } from 'class-validator';
+
+class CreateMemberDto {
+  @ApiProperty({
+    example: 'Zero',
+    description: 'member name',
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @IsNotEmpty()
   name: string;
-  code: string;
 }
+export default CreateMemberDto;

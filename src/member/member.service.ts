@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMemberDto } from './dto/create-member.dto';
-import { UpdateMemberDto } from './dto/update-member.dto';
 import { PrismaService } from 'src/prisma/prisma/prisma.service';
+import CreateMemberDto from './dto/create-member.dto';
 
 @Injectable()
 export class MemberService {
@@ -14,12 +13,12 @@ export class MemberService {
 
     return `M${formattedCount}`;
   }
-  async create(createMemberDto: CreateMemberDto) {
+  async create(payload: CreateMemberDto) {
     const code = await this.generateMemberCode();
 
     return this.prisma.member.create({
       data: {
-        name: createMemberDto.name,
+        name: payload.name,
         code,
       },
     });
@@ -40,5 +39,4 @@ export class MemberService {
       },
     });
   }
-
 }
