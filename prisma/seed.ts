@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-const books = [
+export const books = [
   {
     code: "JK-45",
     title: "Harry Potter",
@@ -35,7 +35,7 @@ const books = [
   },
 ];
 
-const members = [
+export const members = [
   {
     code: "M001",
     name: "Angga",

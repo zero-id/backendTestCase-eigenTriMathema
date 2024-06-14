@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma/prisma.service';
 import CreateMemberDto from './dto/create-member.dto';
+import { PrismaService } from '../../src/prisma/prisma/prisma.service';
+
+interface member {
+  name: string;
+  code: string;
+}
 
 @Injectable()
 export class MemberService {
@@ -16,7 +21,7 @@ export class MemberService {
   async create(payload: CreateMemberDto) {
     const code = await this.generateMemberCode();
 
-    return this.prisma.member.create({
+    return await this.prisma.member.create({
       data: {
         name: payload.name,
         code,

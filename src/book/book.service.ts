@@ -3,7 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma/prisma.service';
+import { PrismaService } from '../../src/prisma/prisma/prisma.service';
 import { CreateBookDto } from './dto/create-book.dto';
 import { BorrowReturnBookDto } from './dto/borrow-return-book.dto';
 

@@ -1,21 +1,23 @@
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { BookController } from './book.controller';
-// import { BookService } from './book.service';
-// import { PrismaService } from 'src/prisma/prisma/prisma.service';
+import { Test, TestingModule } from '@nestjs/testing';
+import { BookController } from './book.controller';
+import { BookService } from './book.service';
+import { PrismaService } from 'src/prisma/prisma/prisma.service';
 
-// describe('BookController', () => {
-//   let controller: BookController;
+describe('BookController', () => {
+  let controller: BookController;
 
-//   beforeEach(async () => {
-//     const module: TestingModule = await Test.createTestingModule({
-//       controllers: [BookController],
-//       providers: [BookService, PrismaService],
-//     }).compile();
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [BookController],
+      providers: [BookService, PrismaService],
+    }).compile();
 
-//     controller = module.get<BookController>(BookController);
-//   });
+    controller = module.get<BookController>(BookController);
+  });
 
-//   it('should be defined', () => {
-//     expect(controller).toBeDefined();
-//   });
-// });
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
+  });
+});
+
+

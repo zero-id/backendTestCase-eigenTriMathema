@@ -1,20 +1,6 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { MemberService } from './member.service';
-import {
-  ApiBody,
-  ApiOperation,
-  ApiParam,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import CreateMemberDto from './dto/create-member.dto';
 
 @ApiTags('member')
@@ -26,8 +12,8 @@ export class MemberController {
   @ApiOperation({ summary: 'create member' })
   @ApiBody({ type: CreateMemberDto })
   @ApiResponse({ status: 201, description: 'create member successfully' })
-  create(@Body() payload: CreateMemberDto) {
-    const member = this.memberService.create(payload);
+  async create(@Body() payload: CreateMemberDto) {
+    const member = await this.memberService.create(payload);
     return {
       message: 'create member successfully',
       data: member,
